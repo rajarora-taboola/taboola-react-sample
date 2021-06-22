@@ -15,7 +15,7 @@ class Page3 extends Component {
         <Header />
         <div>This is page 3</div>
         <Taboola
-          currentUrl={'https://www.taboola.com'}
+          currentUrl={'https://www.taboola.com/page3'}
           publisher={'weatherzone-weatherzonecomau'}
           pageType={'article'}
           placement={'Below Article Thumbnails'}

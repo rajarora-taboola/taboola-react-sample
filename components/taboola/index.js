@@ -29,6 +29,11 @@ class Taboola extends React.Component {
 	onPageLoad() {
 		const { pageType, currentUrl } = this.props;
 
+		// if it is a new page, notify a new page has loaded
+		if (this.shouldPushNewPage()) {
+			window._taboola.push({ notify: 'newPageLoad' });
+		}
+
 		// if it's a new page, pass the new url, else pass the page type
 		const topInfo = this.shouldPushNewPage()
 			? { [pageType]: 'auto', url: currentUrl }
@@ -36,11 +41,6 @@ class Taboola extends React.Component {
 
 		window._taboola = window._taboola || [];
 		window._taboola.push(topInfo);
-
-		// if it is a new page, notify a new page has loaded
-		if (this.shouldPushNewPage()) {
-			window._taboola.push({ notify: 'newPageLoad' });
-		}
 
 		// finally, mark this page as seen
 		currentView.setView(currentUrl);
@@ -55,8 +55,10 @@ class Taboola extends React.Component {
 				placement,
 				target_type: targetType,
 			});
+
+			window._taboola.push({flush: true});
 		} catch (e) {
-			console.log('Error in taboola-react-plugin: ' + e.message);
+			console.log('Error in react taboola plugin: ' + e.message);
 		}
 	}
 
@@ -78,19 +80,21 @@ class Taboola extends React.Component {
 		} finally {
 			this.setState({
 				containerId: this.formatContainerId(this.props.placement),
+			},
+			function() {
+				const { mode, placement, targetType } = this.props;
+				const { containerId } = this.state;
+				{containerId &&
+					this.loadWidget({ mode, placement, targetType, containerId })}
 			});
 		}
 	}
 
-
 	render() {
-		const { mode, placement, targetType } = this.props;
 		const { containerId } = this.state;
 		return (
 			<React.Fragment>
 				{containerId && <div id={containerId} />}
-				{containerId &&
-					this.loadWidget({ mode, placement, targetType, containerId })}
 			</React.Fragment>
 		);
 	}
