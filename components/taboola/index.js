@@ -21,8 +21,7 @@ class Taboola extends React.Component {
 
 	shouldPushNewPage() {
 		const { currentUrl } = this.props;
-		// if this is a new URL and the currentUrl is not an empty string (meaning it is the first page loaded),
-		// we should push the notify-new-page event and the currentUrl
+		// if this is a new page URL and the currentView is not an empty then it will pass as 'true'
 		return currentView.getView() !== '' && currentView.getView() !== currentUrl;
 	}
 
