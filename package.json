@@ -1,0 +1,58 @@
+{
+  "name": "taboola",
+  "version": "1.0.0",
+  "author": "Rajendra Arora <contact.rajendraarora@gmail.com>",
+  "description": "taboola application",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development node server.js",
+    "build": "next build",
+    "heroku-postbuild": "npm run build",
+    "start": "NODE_ENV=production node server.js",
+    "eslintInit": "./node_modules/.bin/eslint --init",
+    "eslint": "./node_modules/.bin/eslint '**/*.js'",
+    "prettier": "prettier --ignore-path './.next/*' --config 'package.json' --write '**/*.js'"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
+  "dependencies": {
+    "@koa/cors": "^2.2.2",
+    "axios": "^0.18.0",
+    "koa": "^2.5.3",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.3.0",
+    "lodash": "^4.17.11",
+    "next": "^7.0.2",
+    "next-redux-wrapper": "^2.0.0",
+    "next-routes": "^1.4.2",
+    "prop-types": "^15.6.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "request": "^2.88.0",
+    "reselect": "^4.0.0",
+    "seamless-immutable": "^7.1.4",
+    "styled-components": "4.0.2",
+    "universal-cookie": "^3.0.4",
+    "universal-cookie-koa": "^3.0.4",
+    "webpack": "4.20.2",
+    "webpack-dev-middleware": "3.4.0",
+    "webpack-dev-server": "3.1.9",
+    "webpack-hot-middleware": "2.24.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-styled-components": "^1.1.5",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.14.3",
+    "redux-devtools-extension": "^2.13.2"
+  }
+}
