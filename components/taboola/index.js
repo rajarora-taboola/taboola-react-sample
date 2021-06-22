@@ -82,6 +82,7 @@ class Taboola extends React.Component {
 				containerId: this.formatContainerId(this.props.placement),
 			},
 			function() {
+				// Added callback because state of container id which  take delays to push.
 				const { mode, placement, targetType } = this.props;
 				const { containerId } = this.state;
 				{containerId &&
