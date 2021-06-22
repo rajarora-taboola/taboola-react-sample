@@ -10,5 +10,6 @@ const route = new routes();
  */
 route.add("index", "/");
 route.add("page2", "/page2");
+route.add("page3", "/page3");
 
 module.exports = route;
