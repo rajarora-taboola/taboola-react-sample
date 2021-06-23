@@ -3,6 +3,8 @@ import Header from "../components/header";
 import Taboola from "../components/taboola";
 import Page2 from "../pages/page2";
 import { Link } from "../routes/url";
+import TextSection from "../components/text";
+import HomePage from "../components/homepage";
 
 class MainApp extends Component {
   constructor() {
@@ -13,7 +15,9 @@ class MainApp extends Component {
   render() {
     return (
       <div>
+        <HomePage />
         <Header />
+        <TextSection />
 
         <Taboola
           currentUrl={'https://www.taboola.com'}
