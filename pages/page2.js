@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../components/header";
 import Taboola from "../components/taboola"
 import { Link } from "../routes/url";
+import TextSection from "../components/text";
 
 class Page2 extends Component {
   constructor() {
@@ -14,9 +15,9 @@ class Page2 extends Component {
       <div>
         <Header />
         <div>This is page 2</div>
+        <TextSection />
         <Taboola
           currentUrl={'https://www.taboola.com/page2'}
-          publisher={'weatherzone-weatherzonecomau'}
           pageType={'article'}
           placement={'Below Article Thumbnails'}
           mode={'thumbnails-b-mobile'}
